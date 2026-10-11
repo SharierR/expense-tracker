@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    <section class="card">
+      <h2>Add Expense</h2>
+      <form id="expenseForm" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0.01" required />
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+              <option value="">Select</option>
+              <option value="food">Food</option>
+              <option value="transport">Transport</option>
+              <option value="shopping">Shopping</option>
+              <option value="bills">Bills</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="field">
+            <label for="note">Note</label>
+            <input type="text" id="note" name="note" maxlength="100" />
+          </div>
+        </div>
+        <button type="submit">Add Expense</button>
+        <p id="formMsg" class="msg"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Summary</h2>
+      <div class="summary">
+        <div class="summary-card">
+          <div class="label">Total</div>
+          <div class="value" id="total">0</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">This Month</div>
+          <div class="value" id="monthTotal">0</div>
+        </div>
+      </div>
+      <div class="bars" id="bars"></div>
+    </section>
+
+    <section class="card">
+      <h2>Expenses</h2>
+      <div class="filter">
+        <label for="filterCategory">Filter by category</label>
+        <select id="filterCategory">
+          <option value="">All</option>
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="shopping">Shopping</option>
+          <option value="bills">Bills</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div id="expensesList" class="list"></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
